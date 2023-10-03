@@ -9,10 +9,10 @@ public class MainChecked {
 
         try {
             Integer notaFinal = calcularNota(nota, adicional);
-            if (notaFinal == null)
-                System.out.println("Passou de 10");
             System.out.println("Nota final " + notaFinal);
         } catch (NotaExcedidaException e) {
+            e.printStackTrace();
+            System.out.println(e.getMessage());
             System.out.println("A nota do aluno ficou superior a 10, favor reavaliar");
         }
 
@@ -21,7 +21,7 @@ public class MainChecked {
     private static Integer calcularNota(Integer nota, Integer adicional) throws NotaExcedidaException {
         Integer resultado = nota + adicional;
         if (resultado > 10)
-            throw new NotaExcedidaException();  // checked
+            throw new NotaExcedidaException("Nota maior que 10!!!");  // checked
         else if (resultado < 0)
             throw new NotaMenorQueZeroException(); // unchecked
 
