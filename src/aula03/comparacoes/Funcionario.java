@@ -12,6 +12,7 @@ public class Funcionario implements Comparable<Funcionario> {
     private LocalDate dataAdmissao;
 
 
+    public Funcionario() {}
     public Funcionario(Integer matricula, String nome, LocalDate dataAdmissao) {
         this.matricula = matricula;
         this.nome = nome;
