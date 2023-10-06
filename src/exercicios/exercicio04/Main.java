@@ -13,21 +13,19 @@ public class Main {
             Scanner scanner = new Scanner(System.in);
             int idade = scanner.nextInt();
             try {
-                validarIdade(idade);  // aqui for lancado a excecao, vai quebrar direto pro catch
+                // aqui for lancado a excecao, vai quebrar direto pro catch
+                if (idade <= 0 || idade > 100 ) {
+                    // throw new IllegalArgumentException("Idade invalida");
+                    throw new IdadeInvalidaException("Vc informou uma idade invalida");  // vai lancar a excecao IdadeInvalidaEXception
+                }
                 System.out.println("Olá, você tem " + idade +" anos de idade!");
                 isIdadeValida = true;
             } catch (IdadeInvalidaException e) {
-                System.out.println("Vc informou uma idade invalida");
+                System.out.println( e.getMessage() );
                 isIdadeValida = false;
             }
         }
 
     }
 
-    private static void validarIdade(int idade) {
-        if (idade <= 0 || idade > 100 ) {
-//            throw new IllegalArgumentException("Idade invalida");
-            throw new IdadeInvalidaException();  // vai lancar a excecao IdadeInvalidaEXception
-        }
-    }
 }
